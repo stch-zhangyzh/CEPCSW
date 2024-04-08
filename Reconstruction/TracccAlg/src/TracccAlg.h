@@ -8,7 +8,7 @@
 
 #include "GaudiKernel/NTuple.h"
 #include "DetInterface/IGeomSvc.h"
-#include "syclevent.h"
+#include "traccc/wrapper/sycl_wrapper.hpp"
 
 namespace edm4hep {
     class SimTrackerHitCollection;
@@ -48,7 +48,7 @@ class TracccAlg : public GaudiAlgorithm
 
         std::vector<my_cell> cells{};
         
-        CEPCAlg* my_acts = factory();
+        traccc_wrapper* my_acts = factory();
 };
 
 uint64_t generate_gid(uint64_t layer, uint64_t module, int barrelside) {
